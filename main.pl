@@ -27,13 +27,14 @@ reset_answer_records.
 
 % Rules for the knowledge base
 motorcycle(adv) :-
-  why(ans1).
+  why(why_travel),
+  experience(experience_mid).
 
 motorcycle(cruiser) :-
-  why(ans2).
+  why(why_relax).
 
 motorcycle(sport) :-
-  why(ans3).
+  why(why_for_fun).
 
 
 % Questions for the knowledge base
@@ -60,29 +61,82 @@ question(fastboi) :-
 
 
 % Answers for the knowledge base
-answer(ans1) :-
-  write('1').
 
-answer(ans2) :-
-  write('2').
+% why
+answer(why_commute) :-
+  write('I want to commute fast in traffic.').
 
-answer(ans3) :-
-  write('3').
+answer(why_for_fun) :-
+  write('I want to have fun.').
 
-answer(ans4) :-
-  write('4').
+answer(why_travel) :-
+  write('I want to travel.').
 
-answer(ans5) :-
-  write('5').
+answer(why_relax) :-
+  write('I want to relax while riding.').
 
-answer(ans6) :-
-  write('6').
+% distance
+answer(distance_near) :-
+  write('I want to travel within close range i.e. within settlement or 20 km distance.').
 
-answer(ans7) :-
-  write('7').
+answer(distance_mid) :-
+  write('I want to travel within medium range i.e. 20-100 km.').
 
-answer(ans8) :-
-  write('8').
+answer(distance_long) :-
+  write('I want to travel within long range i.e. 100+ km').
+
+% roads
+answer(roads_paved) :-
+  write('Paved roads (tarmac, concrete, bricks)').
+
+answer(roads_gravel) :-
+  write('Gravel roads').
+
+answer(roads_no) :-
+  write('Roads? What is a road?!').
+
+% track
+answer(track_yes) :-
+  write('Yes').
+
+answer(track_no) :-
+  write('Sometimes').
+
+answer(track_sometimes) :-
+  write('No').
+
+% experience
+answer(experience_no) :-
+  write('No experience').
+
+answer(experience_small) :-
+  write('I have 1-2 years of experience').
+
+answer(experience_mid) :-
+  write('I have 3-5 years of experience').
+
+answer(experience_big) :-
+  write('I have 5+ years of experience').
+
+% position
+answer(position_relaxed) :-
+  write('Relaxed').
+
+answer(position_straight) :-
+  write('Straight').
+
+answer(position_half_sport) :-
+  write('Half-sport').
+
+answer(experience_big) :-
+  write('Sport').
+
+% fast-boi
+answer(fastb_yes) :-
+  write('Sure').
+
+answer(fastb_no) :-
+  write('Not at all').
 
 
 % Motorcycle descriptions for the knowledge base
@@ -124,7 +178,13 @@ why(Answer) :-
   answer_record(why, Answer).
 why(Answer) :-
   \+ answer_record(why, _),
-  ask(why, Answer, [ans1, ans2, ans3]).
+  ask(why, Answer, [why_commute, why_for_fun, why_relax, why_travel]).
+
+experience(Answer) :-
+  answer_record(experience, Answer).
+experience(Answer) :-
+  \+ answer_record(experience, _),
+  ask(experience, Answer, [experience_no, experience_small, experience_mid, experience_big]).
 
 
 % Output formatted list of answers
