@@ -24,19 +24,97 @@ reset_answer_records :-
   retract(answer_record(_, _)).
 reset_answer_records.
 
-
 % Rules for the knowledge base
 motorcycle(adv) :-
   why(why_travel),
-  experience(experience_mid).
+  experience(experience_mid),
+  distance(distance_long),
+  roads(roads_no),
+  track(track_sometimes),
+  position(),
+  fastboi().
 
 motorcycle(cruiser) :-
-  why(why_relax).
+  why(why_relax),
+  experience(experience_mid),
+  distance(distance_near),
+  roads(roads_paved),
+  track(track_no),
+  position(),
+  fastboi().
 
 motorcycle(sport) :-
-  why(why_for_fun).
+  why(why_for_fun),
+  experience(experience_mid),
+  distance(distance_mid),
+  roads(roads_paved),
+  track(track_yes),
+  position(),
+  fastboi().
 
+motorcycle(touring) :-
+  why(why_travel),
+  experience(experience_mid),
+  distance(distance_long),
+  roads(roads_paved),
+  track(track_no),
+  position(),
+  fastboi().
 
+motorcycle(sport-touring) :-
+  why(why_travel),
+  experience(experience_mid),
+  distance(distance_long),
+  roads(roads_paved),
+  track(track_sometimes),
+  position(),
+  fastboi().
+  
+motorcycle(dualsport) :-
+  why(why_for_fun),
+  experience(experience_mid),
+  distance(distance_mid),
+  roads(roads_no),
+  track(track_yes),
+  position(),
+  fastboi().
+  
+motorcycle(cross) :-
+  why(why_for_fun),
+  experience(experience_mid),
+  distance(distance_mid),
+  roads(roads_no),
+  track(track_no),
+  position(),
+  fastboi().
+  
+motorcycle(moped) :-
+  why(why_commute),
+  experience(experience_mid),
+  distance(distance_near),
+  roads(roads_paved),
+  track(track_no),
+  position(),
+  fastboi().
+  
+motorcycle(naked) :-
+  why(why_relax),
+  experience(experience_mid),
+  distance(distance_mid),
+  roads(roads_gravel),
+  track(track_sometimes),
+  position(),
+  fastboi().
+  
+motorcycle(funbike) :-
+  why(why_for_fun),
+  experience(experience_mid),
+  distance(distance_near),
+  roads(roads_paved),
+  track(track_yes),
+  position(),
+  fastboi().
+  
 % Questions for the knowledge base
 question(why) :-
   write('Why do you want to ride a motorcycle?'), nl.
@@ -100,10 +178,10 @@ answer(track_yes) :-
   write('Yes').
 
 answer(track_no) :-
-  write('Sometimes').
+  write('No').
 
 answer(track_sometimes) :-
-  write('No').
+  write('Sometimes').
 
 % experience
 answer(experience_no) :-
@@ -146,31 +224,49 @@ describe(adv) :-
   write('These motorcycles are big and heavy, which makes them not so easy to handle, thus inappropriate for beginners.').
 
 describe(cruiser) :-
-  write('Cruiser').
+  write('Cruiser'), nl,
+  write('Large, heave motorcycles, more popular under the name Harley-Davidson. At low to moderate speeds, cruisers are more comfortable than other styles.'), nl,
+  write('Being designed primarily for visual effect, choppers will not usually be the most efficient riding machines.').
 
 describe(sport) :-
-  write('Sport').
+  write('Sport'), nl,
+  write('Sport bikes emphasize top speed, acceleration, braking, handling and grip on paved roads, typically at the expense of comfort and fuel economy.'), nl,
+  write('Really fast but extremaly dangerous, not appropriate for beginners.').
 
 describe(touring) :-
-  write('Touring').
+  write('Touring'), nl,
+  write('Long distance motorcycle, typically with a large engine and a lot of storage. Pretty comfortable and doesnt require a lot of skill.'), nl,
+  write('.').
 
 describe(sport-touring) :-
-  write('Sport-touring').
+  write('Sport-touring'), nl,
+  write('Sport touring motorcycles combine attributes of sport bikes and touring motorcycles. The rider posture is less extreme than a sport bike, giving greater long-distance comfort.'), nl,
+  write('The distinction between touring and sport touring is not always clear as some manufacturers will list the same bike in either category in different markets.').
 
 describe(dualsport) :-
-  write('Dual-sport').
+  write('Dual-sport'), nl,
+  write('Typically based on a dirt bike chassis, they have added lights, mirrors, signals, and instruments that allow them to be licensed for public roads.'), nl,
+  write('The seat height is generally a little taller to navigate the backroads and off beaten paths you can find on the backroads.').
 
 describe(cross) :-
-  write('Cross').
+  write('Cross'), nl,
+  write('Such bikes are raced on short, closed off-road tracks with a variety of obstacles. The motorcycles have a small fuel tank for lightness and compactness.'), nl,
+  write('Deffinitely not for beginners, only for people with specific needs, who knows what they are doing.').
 
 describe(moped) :-
-  write('Moped').
+  write('Moped'), nl,
+  write('The Moped has a lighter frame based on a bicycle style and a smaller engine (50cc or less) or even an electric motor in place of the engine.'), nl,
+  write('Pretty vintage but really good for short distances and for beginners.').
 
 describe(naked) :-
-  write('Naked').
+  write('Naked'), nl,
+  write('General-purpose street motorcycles. They are recognized primarily by their upright riding position, partway between the reclining rider posture of the cruisers and the forward leaning sport bikes.'), nl,
+  write('Because of their flexibility, lower costs, and moderate engine output, standards are particularly suited to motorcycle beginners.').
 
 describe(funbike) :-
-  write('Funbike').
+  write('Funbike'), nl,
+  write('???.'), nl,
+  write('???.').
 
 
 % Assign an answer to questions from the knowledge base
