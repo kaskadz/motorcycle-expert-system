@@ -111,9 +111,8 @@ motorcycle(funbike) :-
   experience(experience_mid),
   distance(distance_near),
   roads(roads_paved),
-  track(track_yes),
-  position(),
-  fastboi().
+  track(track_no),
+  position().
   
 % Questions for the knowledge base
 question(why) :-
@@ -265,8 +264,7 @@ describe(naked) :-
 
 describe(funbike) :-
   write('Funbike'), nl,
-  write('???.'), nl,
-  write('???.').
+  write('Small bikes (in size, weight and displacement) that may serve as short distance travel means, but generally they main purpose is to have fun on them.').
 
 
 % Assign an answer to questions from the knowledge base
