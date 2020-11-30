@@ -1,2 +1,5 @@
-why travel
-distance mid
+why fun
+why relax
+experience exp_big
+experience exp_medium
+distance dist_short
