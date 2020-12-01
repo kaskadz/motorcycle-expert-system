@@ -1,7 +1,7 @@
 import tkinter as tk
 import yaml
 from tkinter import messagebox
-
+import fileinput
 from pyswip import Prolog
 
 QUESTIONS_FILE = 'questions.yaml'
@@ -95,6 +95,15 @@ class Application(tk.Frame):
 
     def show_result(self):
         self.save_answers()
+        with open(OUTPUT_FILE, 'r') as file:
+            filedata = file.read()
+
+        filedata = filedata.replace('nox', 'no')
+        filedata = filedata.replace('offx', 'off')
+
+        with open(OUTPUT_FILE, 'w') as file:
+            file.write(filedata)
+
         prolog = Prolog()
         prolog.consult(knowledge_base_file)
 
@@ -118,12 +127,16 @@ class Application(tk.Frame):
 
         if choice:
             self.quit()
+        else:
+            self.quit()
 
     def load_question(self):
         self.save_answers()
         next_key = next(self.questions_iter, None)
         if next_key is None:
             self.show_result()
+            return
+
         self.key = next_key
 
         self.question.set(self.questions[next_key]["question"])
@@ -132,12 +145,15 @@ class Application(tk.Frame):
         ans_key = next(ans_iter)
         self.optionA_key = ans_key
         self.optionA.set(self.questions[next_key]["answers"][ans_key])
+
         ans_key = next(ans_iter)
         self.optionB_key = ans_key
         self.optionB.set(self.questions[next_key]["answers"][ans_key])
+
         ans_key = next(ans_iter)
         self.optionC_key = ans_key
         self.optionC.set(self.questions[next_key]["answers"][ans_key])
+
         ans_key = next(ans_iter, None)
         self.optionD_key = ans_key
         if ans_key is None:
@@ -145,6 +161,13 @@ class Application(tk.Frame):
         else:
             self.radioButtonD.grid(column=2, row=7, sticky=tk.N + tk.S + tk.E + tk.W)
             self.optionD.set(self.questions[next_key]["answers"][ans_key])
+
+    def check_key(self, ans_key):
+        if ans_key == 'nox':
+            ans_key = 'no'
+        elif ans_key == 'offx':
+            ans_key = 'off'
+        return ans_key
 
     def create_widgets(self, top):
         top.geometry("800x600")

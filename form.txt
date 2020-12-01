@@ -1,5 +1,11 @@
-why fun
-why relax
-experience exp_big
-experience exp_medium
-distance dist_short
+why travel
+experience big
+distance long
+roads paved
+position relaxed
+weight heavy
+seat_height mid
+luggage big
+top_speeds high
+fairing full
+torque mid

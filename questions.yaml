@@ -1,0 +1,73 @@
+questions:
+  why:
+    question: Why do you want to ride a motorcycle?
+    answers:
+      travel: I want to travel
+      commute: I want to commute
+      fun: I want to ride for fun
+      relax: I want to ride to relax
+
+  experience:
+    question: What is your experience?
+    answers:
+      small: Small
+      big: Big
+      mid: Medium
+      nox: No experience
+  distance:
+    question: What distances do you want to travel?
+    answers:
+      long: I want to travel long distances
+      mid: I want to travel medium distances
+      near: I want to travel short distances
+  roads:
+    question: What roads do you want to ride on?
+    answers:
+      paved: I want to ride on paved roads
+      grave: I want to ride on gravel roads
+      offx: I want to ride offroads
+      any: I want to ride on any road
+  position:
+    question: What position do you want to travel in?
+    answers:
+      horse: I want to ride in horse position
+      sport: I want to ride in sport position
+      half_sport: I want to ride in half-sport position
+      relaxed: I want to ride in relaxed position
+  weight:
+    question: How heavy your motorcycle should be?
+    answers:
+      heavy: I want it heavy
+      mid: I want it medium
+      light: I want it light
+  seat_height:
+    question: How high do you want your seat?
+    answers:
+      high: I want it high
+      mid: I want it medium
+      low: I want it low
+  luggage:
+    question: How big luggage do you want to carry?
+    answers:
+      big: I want to carry big luggage
+      small: I want to carry small luggage
+      nox: I don't want to carry any luggage
+  top_speeds:
+    question: How fast do you wanna go?
+    answers:
+      super_high: I want to go really fast
+      high: I want to go fast
+      mid: I want to go medium
+      low: I want to go slow
+  fairing:
+    question: Do you want a fairing?
+    answers:
+      full: Yes, I want a full fairing
+      some: Yes, I want some fairing
+      nox: No, I don't want fairing
+  torque:
+    question: How do you want your torque?
+    answers:
+      high: High
+      mid: Mid
+      low: Low
