@@ -4,70 +4,78 @@ questions:
     answers:
       travel: I want to travel
       commute: I want to commute
-      fun: I want to ride for fun
-      relax: I want to ride to relax
+      fun: I want to have fun
+      relax: I want to relax
 
   experience:
     question: What is your experience?
     answers:
-      small: Small
-      big: Big
-      mid: Medium
-      nox: No experience
+      small: Small (1-3 years)
+      big: Big (>5 years)
+      mid: Medium (3-5 years)
+      nox: I have no experience
+
   distance:
-    question: What distances do you want to travel?
+    question: What distances do you want to cover?
     answers:
-      long: I want to travel long distances
-      mid: I want to travel medium distances
-      near: I want to travel short distances
+      long: I want to travel long distances (> 100 km)
+      mid: I want to travel medium distances (< 100 km)
+      near: I want to travel short distances (< 25 km)
+
   roads:
     question: What roads do you want to ride on?
     answers:
       paved: I want to ride on paved roads
       grave: I want to ride on gravel roads
       offx: I want to ride offroads
-      any: I want to ride on any road
+
   position:
-    question: What position do you want to travel in?
+    question: What positions do you accept to travel in?
     answers:
-      horse: I want to ride in horse position
-      sport: I want to ride in sport position
-      half_sport: I want to ride in half-sport position
-      relaxed: I want to ride in relaxed position
+      horse: A horse rider like
+      sport: Sport
+      half_sport: Half-sport
+      relaxed: Layed-back (relaxed)
+
   weight:
-    question: How heavy your motorcycle should be?
+    question: How heavy your motorcycle can be?
     answers:
-      heavy: I want it heavy
-      mid: I want it medium
-      light: I want it light
+      heavy: Heavy weight (> 200 kg)
+      mid: Medium weight (120 - 200 kg)
+      light: Light weight (< 120 kg)
+
   seat_height:
-    question: How high do you want your seat?
+    question: What seat heights are acceptable to you?
     answers:
-      high: I want it high
-      mid: I want it medium
-      low: I want it low
+      high: High ~80 (rifer height ~170 cm)
+      mid: Medium ~70 (rider height ~160 cm)
+      low: Low ~60 cm (rider height ~150 cm)
+
   luggage:
     question: How big luggage do you want to carry?
     answers:
       big: I want to carry big luggage
       small: I want to carry small luggage
       nox: I don't want to carry any luggage
+
   top_speeds:
-    question: How fast do you wanna go?
+    question: What top speeds do you want to achieve?
     answers:
-      super_high: I want to go really fast
-      high: I want to go fast
-      mid: I want to go medium
-      low: I want to go slow
+      super_high: I want to go really fast (> 200 km/h)
+      high: I want to go fast (140 - 200 km/h)
+      mid: I want to go medium (90 - 140 km/h)
+      low: I want to go slow (< 90 km/h)
+
   fairing:
     question: Do you want a fairing?
     answers:
       full: Yes, I want a full fairing
-      some: Yes, I want some fairing
-      nox: No, I don't want fairing
+      some: Yes, I want some fairing, but not full
+      nox: No, I don't want almost any fairing
+
   torque:
-    question: How do you want your torque?
+    question: How much torque should the motorcycle have?
     answers:
-      high: High
-      mid: Mid
-      low: Low
+      high: High torque
+      mid: Medium torque
+      low: I don't care about toruqe
