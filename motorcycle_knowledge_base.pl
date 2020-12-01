@@ -29,7 +29,9 @@ motorcycle(dualsport) :-
   optional(why, fun),
   optional(experience, small),
   optional(distance, mid),
-  optional(roads, any),
+  optional(roads, paved),
+  optional(roads, gravel),
+  optional(roads, off),
   optional(weight, high),
   optional(seat, mid),
   optional(luggage, small),
@@ -209,7 +211,6 @@ preference(top_speed, high) :- preference(top_speed, mid).
 preference(top_speed, mid) :- preference(top_speed, low).
 
 % roads: paved, grave, off, any
-preference(roads, any) :- true.
 
 % riding_position: horse, sport, half_sport, relaxed
 % why: travel, fun, commute, relax
