@@ -1,0 +1,31 @@
+motorcycles:
+  adv:
+    name: Adventure
+    info: Adventure motorcycle is a good choice for long, distant travels both on paved and gravel roads, it is also off-road capable to some extent. These motorcycles are big and heavy, which makes them not so easy to handle, thus inappropriate for beginners.
+  dualsport:
+    name: Dualsport
+    info: Typically based on a dirt bike chassis, they have added lights, mirrors, signals, and instruments that allow them to be licensed for public roads. The seat height is generally a little taller to navigate the backroads and off beaten paths you can find on the backroads.
+  off_road:
+    name: Off-road
+    info: Such bikes are raced on short, closed off-road tracks with a variety of obstacles. The motorcycles have a small fuel tank for lightness and compactness. Deffinitely not for beginners, only for people with specific needs, who knows what they are doing.
+  cruiser:
+    name: Cruiser
+    info: Large, heave motorcycles, more popular under the name Harley-Davidson. At low to moderate speeds, cruisers are more comfortable than other styles. Being designed primarily for visual effect, choppers will not usually be the most efficient riding machines.
+  touring:
+    name: Touring
+    info: Long distance motorcycle, typically with a large engine and a lot of storage. Pretty comfortable and doesnt require a lot of skill.
+  sport_touring:
+    name: Sport touring
+    info: Sport touring motorcycles combine attributes of sport bikes and touring motorcycles. The rider posture is less extreme than a sport bike, giving greater long-distance comfort. The distinction between touring and sport touring is not always clear as some manufacturers will list the same bike in either category in different markets.
+  sport:
+    name: Sport
+    info: Sport bikes emphasize top speed, acceleration, braking, handling and grip on paved roads, typically at the expense of comfort and fuel economy. Really fast but extremaly dangerous, not appropriate for beginners.
+  moped:
+    name: Moped
+    info: The Moped has a lighter frame based on a bicycle style and a smaller engine (50cc or less) or even an electric motor in place of the engine. Pretty vintage but really good for short distances and for beginners.
+  naked:
+    name: Naked
+    info: General-purpose street motorcycles. They are recognized primarily by their upright riding position, partway between the reclining rider posture of the cruisers and the forward leaning sport bikes. Because of their flexibility, lower costs, and moderate engine output, standards are particularly suited to motorcycle beginners.
+  funbike:
+    name: Funbike
+    info: Small bikes (in size, weight and displacement) that may serve as short distance travel means, but generally they main purpose is to have fun on them.

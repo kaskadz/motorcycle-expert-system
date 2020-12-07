@@ -5,6 +5,7 @@ import fileinput
 from pyswip import Prolog
 
 QUESTIONS_FILE = 'questions.yaml'
+MOTORCYCLE_FILE = 'motorcycles.yaml'
 OUTPUT_FILE = 'form.txt'
 knowledge_base_file = r'motorcycle_knowledge_base.pl'
 
@@ -36,6 +37,7 @@ class Application(tk.Frame):
         self.key = ""
         self.question = tk.StringVar()
         self.file = open(QUESTIONS_FILE, "r")
+        self.motorcycles = open(MOTORCYCLE_FILE, 'r')
         self.questions = yaml.load(self.file, Loader=yaml.FullLoader)['questions']
         self.questions_iter = iter(self.questions)
         open(OUTPUT_FILE, 'w').close()
@@ -46,22 +48,21 @@ class Application(tk.Frame):
         self.radioButtonA = tk.Checkbutton(self,
                                            textvariable=self.optionA,
                                            variable=self.varA,
-                                           bg='#45484c',
-                                           fg='#e5e5e5')
+                                           bg='black', fg='white', activebackground='black', activeforeground='white',selectcolor="black")
         self.radioButtonB = tk.Checkbutton(self,
                                            textvariable=self.optionB,
                                            variable=self.varB,
-                                           bg='#45484c', fg='#e5e5e5')
+                                           bg='black', fg='white', activebackground='black', activeforeground='white',selectcolor="black")
         self.radioButtonC = tk.Checkbutton(self,
                                            textvariable=self.optionC,
                                            variable=self.varC,
-                                           bg='#45484c', fg='#e5e5e5')
+                                           bg='black', fg='white', activebackground='black', activeforeground='white',selectcolor="black")
         self.radioButtonD = tk.Checkbutton(self,
                                            textvariable=self.optionD,
                                            variable=self.varD,
-                                           bg='#45484c', fg='#e5e5e5')
+                                           bg='black', fg='white', activebackground='black', activeforeground='white',selectcolor="black")
 
-        self.label_question = tk.Label(self, textvariable=self.question)
+        self.label_question = tk.Label(self, textvariable=self.question, justify='left')
         self.create_widgets(top)
         self.load_question()
 
@@ -118,10 +119,15 @@ class Application(tk.Frame):
 
         print('Suggestions:')
         predictions = ""
+        motorcycles = yaml.load(self.motorcycles, Loader=yaml.FullLoader)['motorcycles']
+        counter = 1
         for x in prolog.query('motorcycle(X)'):
             print(x)
             print(f' - {x["X"]}')
-            predictions += x["X"] + "\n"
+            predictions += str(counter) + '.' + motorcycles[x["X"]]['name'] + "\n\n"
+            predictions += motorcycles[x["X"]]['info'] + "\n\n\n"
+            counter += 1
+
 
         choice = messagebox.showinfo('Results', 'Your prediction is: \n ' + predictions)
 
@@ -159,7 +165,7 @@ class Application(tk.Frame):
         if ans_key is None:
             self.radioButtonD.grid_forget()
         else:
-            self.radioButtonD.grid(column=2, row=7, sticky=tk.N + tk.S + tk.E + tk.W)
+            self.radioButtonD.grid(column=3, row=4, sticky=tk.N + tk.S + tk.E + tk.W, columnspan=3)
             self.optionD.set(self.questions[next_key]["answers"][ans_key])
 
     def check_key(self, ans_key):
@@ -170,12 +176,21 @@ class Application(tk.Frame):
         return ans_key
 
     def create_widgets(self, top):
-        top.geometry("800x600")
+        top.geometry("400x300")
         top.resizable(True, True)
+
         top.grid_columnconfigure(0, weight=1)
-        top.grid_columnconfigure(9, weight=1)
+        top.grid_columnconfigure(1, weight=1)
+        top.grid_columnconfigure(2, weight=1)
+        top.grid_columnconfigure(3, weight=1)
+        top.grid_columnconfigure(4, weight=1)
+        top.grid_columnconfigure(5, weight=1)
         top.grid_rowconfigure(0, weight=1)
-        top.grid_rowconfigure(9, weight=1)
+        top.grid_rowconfigure(1, weight=1)
+        top.grid_rowconfigure(2, weight=1)
+        top.grid_rowconfigure(3, weight=1)
+        top.grid_rowconfigure(4, weight=1)
+        top.grid_rowconfigure(5, weight=1)
 
         self.optionA.set('Hello A!')
         self.optionB.set('Hello B!')
@@ -183,16 +198,14 @@ class Application(tk.Frame):
         self.optionD.set('Hello D!')
         self.question.set('Demo Question')
 
-        self.label_question.grid(column=3, row=1, columnspan=4)
+        self.label_question.grid(column=3, row=0, columnspan=8)
+        self.radioButtonA.grid(column=3, row=1, sticky=tk.N + tk.S + tk.W + tk.E, columnspan=3)
+        self.radioButtonB.grid(column=3, row=2, sticky=tk.N + tk.S + tk.W + tk.E, columnspan=3)
+        self.radioButtonC.grid(column=3, row=3, sticky=tk.N + tk.S + tk.E + tk.W, columnspan=3)
+        self.radioButtonD.grid(column=3, row=4, sticky=tk.N + tk.S + tk.E + tk.W, columnspan=3)
 
-        self.radioButtonA.grid(column=2, row=4, sticky=tk.N + tk.S + tk.W + tk.E)
-        self.radioButtonB.grid(column=2, row=5, sticky=tk.N + tk.S + tk.W + tk.E)
-        self.radioButtonC.grid(column=2, row=6, sticky=tk.N + tk.S + tk.E + tk.W)
-        self.radioButtonD.grid(column=2, row=7, sticky=tk.N + tk.S + tk.E + tk.W)
-
-        self.quitButton.grid(column=4, row=9)
-        self.nextButton.grid(column=3, row=9)
-        top.geometry("800x600")
+        self.quitButton.grid(column=4, row=5, sticky='w')
+        self.nextButton.grid(column=3, row=5, sticky='s')
 
 
 if __name__ == "__main__":
