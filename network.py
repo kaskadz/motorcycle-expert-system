@@ -59,13 +59,13 @@ class Application(tk.Frame):
 
     def show_result(self):
         net = pysmile.Network()
-        motorcycles = ['adv', 'moped', 'cruiser', 'sport', 'touring', 'naked']
+        motorcycles = ['adv', 'moped', 'cruiser', 'sport', 'touring', 'naked', 'power_cruiser', 'sport_touring']
         net.read_file(NETWORK_FILE)
 
         net.set_virtual_evidence("travel", [self.varA.get()/10, 1-self.varA.get()/10])
         net.set_virtual_evidence("fun", [self.varB.get()/10, 1-self.varB.get()/10])
-        net.set_virtual_evidence("travel", [self.varC.get()/10, 1-self.varC.get()/10])
-        net.set_virtual_evidence("travel", [self.varD.get()/10, 1-self.varD.get()/10])
+        net.set_virtual_evidence("commute", [self.varC.get()/10, 1-self.varC.get()/10])
+        net.set_virtual_evidence("relax", [self.varD.get()/10, 1-self.varD.get()/10])
 
         net.update_beliefs()
         probs = dict()
